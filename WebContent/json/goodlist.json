@@ -1,0 +1,24 @@
+[{
+	"id" : "banana", 
+	"name" : "香蕉", 
+	"price" : "6", 
+	"spec" : "斤"
+},
+{
+	"id" : "apple", 
+	"name" : "苹果", 
+	"price" : "12", 
+	"spec" : "斤"
+},
+{
+	"id" : "apple", 
+	"name" : "苹果", 
+	"price" : "12", 
+	"spec" : "斤"
+},
+{
+	"id" : "apple", 
+	"name" : "苹果", 
+	"price" : "12", 
+	"spec" : "斤"
+}]

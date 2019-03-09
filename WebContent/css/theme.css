@@ -1,0 +1,128 @@
+@CHARSET "UTF-8";
+body {
+	background-color: #f4f4f4;
+}
+.good-card {
+	height: 335px;
+	margin: 15px;
+	padding: 0;
+	background-color: white;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+	
+}
+.good-card .img {
+	height: 280px;
+	margin: 10px;
+	padding: 0px;
+	width: transparent;
+	background-size: cover;
+}
+.good-card .info {
+	margin: 0 15px;
+	padding: 0;
+	height: 20px;
+	line-height: 20px;
+	color: #333333;
+}
+.good-card .info .name {
+	padding-right: 20px;
+}
+.good-card .info .name a{
+	color: #666666;
+	height: 20px;
+	line-height: 20px;
+	font-weight: 600;
+}
+.good-card .info .name a:hover{
+	color: #333333;
+	height: 20px;
+	line-height: 20px;
+	text-decoration: none;
+}
+.good-card .info .price {
+	height: 20px;
+	line-height: 20px;
+	float: right;
+	font-weight: 800;
+	color: #5fa7f3;
+}
+
+.dropdown-toggle {
+	cursor: pointer;
+}
+.dropdown-menu {
+	cursor: pointer;
+}
+
+/* 工具栏 */
+#toolbar {
+	background-color: rgba(255,255,255,0.6) !important;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+}
+#toolbar .nav-item {
+	margin: 6px 20px;
+	cursor: pointer;
+	color: #444444;
+	font-weight: 600;
+}
+#toolbar .nav-item:hover {
+	color: #333333;
+}
+
+#dropdownMenuType {
+	background-color: #f3f3f3;
+	border-radius: 4px;
+	font-weight: 400;
+	color: #7f7f7f;
+}
+#dropdownMenuType li {
+	padding: 4px 8px;
+}
+#dropdownMenuType li:hover {
+	background-color: #e0e0e0;
+	color: #4f4f4f;
+}
+
+/* 搜索框 */
+.nav-item input {
+	border: none;
+	padding: 0 8px;
+	margin-right: 12px;
+	background-color: transparent;
+	border-bottom: 2px solid #9f9f9f;
+	width: 120px;
+	font-size: 14px;
+}
+.nav-item input:focus {
+	outline: none !important;
+	border-bottom-color: #343434;
+}
+.nav-item span {
+	font-weight: 400;
+	font-size: 14px;
+	background-color: #343434;
+	color: white;
+	padding: 4px 10px;
+	margin: 0px;
+}
+
+.table {
+	background-color: white;
+	table-layout:fixed;
+}
+#tbody tr td{
+    overflow: hidden; 
+    text-overflow:ellipsis;  
+    white-space: nowrap;
+    max-width: 120px;
+    height:26px;
+ }
+.mBtn {
+	cursor: pointer;
+	font-size: 14px;
+	display: inline-block;
+	background-color: #212529;
+	color: white;
+	padding: 4px 8px;
+	margin: 0 4px;
+}

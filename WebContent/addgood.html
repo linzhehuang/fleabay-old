@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>添加商品</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/theme.css" />
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="addGoodForm" class="container" >
+		<input id="image" type="file" value="上传图片"/> <br/>
+		<input id="name" type="text" placeholder="名称" /> <br/>
+		<input id="type" type="text" placeholder="类型" /> <br/>
+		<input id="spec" type="text" placeholder="规格" /> <br/>
+		<input id="remark" type="text" placeholder="备注" /> <br/>
+		<input id="price" type="text" placeholder="价格" /> <br/>
+		<input id="stock" type="text" placeholder="库存量" /> <br/>
+		<input type="button"  value="添加" onclick="uploadImage();" />
+	</div>
+	<script>
+function addGood(id) {
+	var good = {
+			"id" : id,
+			"name" : $("#name").val(),
+			"type" : $("#type").val(),
+			"spec" : $("#spec").val(),
+			"remark" : $("#remark").val(),
+			"price" : $("#price").val(),
+			"stock" : $("#stock").val()
+	};
+	$.ajax({
+		type : "post",
+		dataType : "json",
+		contentType : "application/json;charset=UTF-8",
+		url : "./addGood.do",
+		data: JSON.stringify(good),
+		success : function(response) {
+			if(response.success) {
+				alert("添加商品成功！");
+			} else {
+				alert("添加商品失败！");
+			}
+			window.location.href = "./goodrefactor.html"
+		},
+		error: function() {
+			alert("添加商品失败！");
+		}
+	});
+}
+function uploadImage() {
+	var image = document.getElementById("image").files[0];
+    var formData = new FormData();
+    formData.append('image', image);
+	$.ajax({
+        url: "./uploadGoodImage.do",
+        type: "post",
+        data: formData,
+        contentType: false,
+        processData: false,
+        mimeType: "multipart/form-data",
+        success: function (response) {
+        	response = JSON.parse(response);
+            if(response.success) {
+            	addGood(response.id);
+            } else {
+            	alert("上传图片失败！");
+            }
+        },
+        error: function (data) {
+            alert("上传图片失败！");
+        }
+    });
+}
+
+	</script>
+</body>
+</html>

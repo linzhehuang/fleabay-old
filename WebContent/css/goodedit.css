@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+#goodEditContainer {
+	width: 600px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+	background-color: white;
+	padding: 26px;
+	padding-top: 10px;
+}
+#goodImage {
+	display: inline-block;
+	background-size: cover;
+	height: 280px;
+	width: 340px;
+	border: 1px solid rgba(0,0,0,0.07);
+	margin: 16px;
+}
+#goodContent {
+	postion: absolute;
+	display: inline-block;
+	background-size: cover;
+	height: 280px;
+	width: 340px;
+	border: 1px solid rgba(0,0,0,0.07);
+	margin: 16px;
+}

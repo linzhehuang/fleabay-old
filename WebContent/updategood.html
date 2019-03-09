@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>修改</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/theme.css" />
+  <link rel="stylesheet" href="./css/goodedit.css" />
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="goodEditContainer" class="container" >
+		<div id="goodImage"></div>
+		<input id="image" type="file" value="上传图片"/>
+		<input type="button"  value="修改图片" onclick="updateImage();" /> <br/>
+		<input id="name" type="text" placeholder="名称" /> <br/>
+		<input id="type" type="text" placeholder="类型" /> <br/>
+		<input id="spec" type="text" placeholder="规格" /> <br/>
+		<input id="price" type="text" placeholder="价格" /> <br/>
+		<input id="stock" type="text" placeholder="库存量" /> <br/>
+		<textarea id="remark" placeholder="备注" style="width: 320px;height: 200px;"> </textarea><br/>
+		<input type="button"  value="修改数据" onclick="updateGood();" />
+		<input type="button"  value="取消修改" onclick="window.location.href = './goodrefactor.html';" />
+	</div>
+	<script>
+var id = window.location.hash.substring(1);
+if(id.length != 32) {
+	window.location.href = "./goodrefactor.html";
+}
+function reloadGoodImage() {
+	$('#goodImage').css('background-image', 'url("./good-image/' + id + '.jpg?' + Math.random() + '")');
+}
+function getGoodById() {
+	$.ajax({
+		type : "post",
+		dataType : "json",
+		contentType : "application/json;charset=UTF-8",
+		url : "./getGoodById.do",
+		data: JSON.stringify({
+			"id" : id
+		}),
+		success : function(responseData) {
+			for(var i in responseData) {
+				var v = responseData[i];
+				if(i != 'id') $('#' + i).val(v);
+			}
+			// 加载图片
+			reloadGoodImage();
+		},
+		error: function() {
+			window.location.href = "./goodrefactor.html";
+		}
+	});
+}
+function updateGood() {s
+	var good = {
+			"id" : id,
+			"name" : $("#name").val(),
+			"type" : $("#type").val(),
+			"spec" : $("#spec").val(),
+			"remark" : $("#remark").val(),
+			"price" : $("#price").val(),
+			"stock" : $("#stock").val()
+	};
+	$.ajax({
+		type : "post",
+		dataType : "json",
+		contentType : "application/json;charset=UTF-8",
+		url : "./updateGoodById.do",
+		data: JSON.stringify(good),
+		success : function(response) {
+			if(response.success) {
+				alert("修改商品数据成功！");
+			} else {
+				alert("修改商品数据失败！");
+			}
+			window.location.href = "./goodrefactor.html";
+		},
+		error: function() {
+			alert("修改商品数据失败！");
+			window.location.href = "./goodrefactor.html";
+		}
+	});
+}
+function updateImage() {
+	var image = document.getElementById("image").files[0];
+    var formData = new FormData();
+    formData.append('image', image);
+    formData.append('id', id);
+	$.ajax({
+        url: "./updateGoodImage.do",
+        type: "post",
+        data: formData,
+        contentType: false,
+        processData: false,
+        mimeType: "multipart/form-data",
+        success: function (response) {
+        	response = JSON.parse(response);
+            if(response.success) {
+                alert("修改图片成功！");
+                reloadGoodImage();
+            } else {
+            	alert("修改图片失败！");
+            }
+        },
+        error: function (data) {
+            alert("修改图片失败！");
+        }
+    });
+}
+getGoodById();
+	</script>
+</body>
+</html>

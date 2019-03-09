@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>商品详情页</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/theme.css" />
+  <link rel="stylesheet" href="./css/detail.css" />
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/popper.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/detail.js" defer></script>
+</head>
+<body>
+	<!-- 导航栏 -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  		<a class="navbar-brand" href="./index.html">FleaBay</a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+  		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		    <ul class="navbar-nav">
+		      <li class="nav-item">
+		        <a class="nav-link" href="./index.html">首页</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="./goodrefactor.html">修改商品</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">登录</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">注册</a>
+		      </li>    
+		    </ul>
+  		</div>
+	</nav>
+	
+	<div id="goodContainer" class="container" style="min-height: 800px;margin-bottom: 60px;margin-top: 35px;" >
+		<div id="goodImage"></div>
+		<div id="goodContent">
+			<div id="goodName"></div>
+			<div id="goodPrice"></div>
+			<div id="goodStock"></div>
+			<div id="goodRemark"></div>
+		</div>
+		<input type="button" value="购买" />
+	</div>
+	
+	<!-- 页脚 -->
+
+	<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color: white;border-top: 1px solid #efefef;">
+	    <div class="navbar-inner navbar-content-center">
+	        <p class="text-muted credit" style="padding: 5px;">
+	        	LINZHEHUANG版权所有
+	        </p>
+	    </div>
+	</nav>
+</body>
+</html>
